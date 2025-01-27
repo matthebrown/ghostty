@@ -270,6 +270,9 @@ pub const Action = union(enum) {
     /// Reset the font size to the original configured size.
     reset_font_size: void,
 
+    /// Reset the window size to the configured startup size.
+    reset_window_size: void,
+
     /// Clear the screen. This also clears all scrollback.
     clear_screen: void,
 
@@ -284,11 +287,11 @@ pub const Action = union(enum) {
     scroll_page_fractional: f32,
     scroll_page_lines: i16,
 
-    /// Adjust the current selection in a given direction. Does nothing if no 
+    /// Adjust the current selection in a given direction. Does nothing if no
     /// selection exists.
     ///
     /// Arguments:
-    ///   - left, right, up, down, page_up, page_down, home, end, 
+    ///   - left, right, up, down, page_up, page_down, home, end,
     ///     beginning_of_line, end_of_line
     ///
     /// Example: Extend selection to the right
@@ -746,6 +749,7 @@ pub const Action = union(enum) {
             .increase_font_size,
             .decrease_font_size,
             .reset_font_size,
+            .reset_window_size,
             .clear_screen,
             .select_all,
             .scroll_to_top,
