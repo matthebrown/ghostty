@@ -629,6 +629,12 @@ extension Ghostty {
         }
 
         override func mouseDown(with event: NSEvent) {
+            if (hoverUrl != nil) {
+                guard let url = URL(string: hoverUrl!) else { return }
+                NSWorkspace.shared.open(url)
+                return
+            }
+            
             guard let surface = self.surface else { return }
             let mods = Ghostty.ghosttyMods(event.modifierFlags)
             ghostty_surface_mouse_button(surface, GHOSTTY_MOUSE_PRESS, GHOSTTY_MOUSE_LEFT, mods)
