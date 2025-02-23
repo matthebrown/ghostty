@@ -328,8 +328,6 @@ class TerminalManager {
 
         let configAny = notification.userInfo?[Ghostty.Notification.NewSurfaceConfigKey]
         let config = configAny as? Ghostty.SurfaceConfiguration
-
-        self.newTab(to: window, withBaseConfig: config)
     }
 
     @objc private func ghosttyConfigDidChange(_ notification: Notification) {

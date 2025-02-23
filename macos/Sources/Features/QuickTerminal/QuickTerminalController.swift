@@ -59,6 +59,11 @@ class QuickTerminalController: BaseTerminalController {
             selector: #selector(ghosttyConfigDidChange(_:)),
             name: .ghosttyConfigDidChange,
             object: nil)
+        center.addObserver(
+            self,
+            selector: #selector(newTab(_:)),
+            name: Ghostty.Notification.ghosttyNewTab,
+            object: nil)
     }
 
     required init?(coder: NSCoder) {
